@@ -1,0 +1,20 @@
+CREATE DATABASE IF NOT EXISTS test;
+
+USE test;
+
+CREATE TABLE posts (
+  id int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  userId int(11) UNSIGNED NOT NULL,
+  title varchar(255) NOT NULL,
+  body text NOT NULL
+)
+ENGINE=InnoDB;
+
+CREATE TABLE comments (
+  id int(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  postId int(11) UNSIGNED NOT NULL,
+  name varchar(255) NOT NULL,
+  email varchar(100) NOT NULL,
+  body text NOT NULL
+)
+ENGINE=InnoDB;
