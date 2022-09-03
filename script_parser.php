@@ -6,7 +6,7 @@ $count_comments = 0;
 $link_db = @new mysqli('127.0.0.1', 'root', '', 'test');
 
 if ($link_db->connect_error) {
-    echo 'Ошибка при подключении к базе данных: ' . $link_db->connect_error . "\n";
+    echo 'Ошибка при подключения к базе данных: ' . $link_db->connect_error . "\n";
     die();
 }
 
