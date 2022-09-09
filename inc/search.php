@@ -13,7 +13,14 @@
 		} else {
 
 			$q = $link_db->real_escape_string($_POST['q']);
-			$sql = "SELECT c.name, c.email, c.body, c.postId as post_id, p.title FROM comments as c JOIN posts as p ON p.id = c.postId WHERE c.body LIKE '%" . $q . "%' ";
+			$sql = "SELECT 
+					c.name, 
+					c.email, 
+					c.body, 
+					c.postId as post_id, 
+					p.title 
+				FROM comments as c JOIN posts as p ON p.id = c.postId 
+				WHERE c.body LIKE '%" . $q . "%' ";
 			$result = $link_db->query($sql);
 
 			if(!$result){
@@ -31,10 +38,10 @@
 					}
 
 					$posts[$comment['post_id']]['comments'][] = array(
-																	'name' => $comment['name'],
-																	'email' => $comment['email'],
-																	'body' => $comment['body']
-																);
+												'name' => $comment['name'],
+												'email' => $comment['email'],
+												'body' => $comment['body']
+											);
 				}
 
 			}
